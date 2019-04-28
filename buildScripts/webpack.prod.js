@@ -1,5 +1,5 @@
 import path from 'path';
-import chalk from 'chalk';
+import webpack from 'webpack';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -32,7 +32,11 @@ export default {
         new MiniCssExtractPlugin({
             filename: "[name].css"
         }),
-        new UglifyJsPlugin()
+        new UglifyJsPlugin(),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ],
     module: {
 

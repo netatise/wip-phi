@@ -1,0 +1,197 @@
+/******************** ELEMENT STYLES********************/
+
+header {
+  margin-bottom: 50px;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/********************BASE CLASSES***********************/
+
+.center {
+  margin: 0 auto;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.capital-text {
+  text-transform: capitalize;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+/********************COLOR PALLETTE***********************/
+
+/********************STYLES***********************/
+
+#contacts {
+  width: 90vw;
+}
+
+#contacts #tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+#contacts #tabs .tab {
+  background: #dcdada;
+  color: #333333;
+  border: 1px solid #777777;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0px 2px 4px 0px #777777;
+  flex: 1;
+  padding: 2px 5px;
+}
+
+#contacts #tabs .tab .tab-header__primrary-text {
+  font-size: 2em;
+}
+
+#contacts #tabs .tab .tab-header__sub-text {
+  font-size: 0.7em;
+  float: right;
+  margin-left: 60%;
+}
+
+#contacts #tabs .tab.active-tab {
+  border-bottom: none;
+  background: #eeeeee;
+  box-shadow: none;
+}
+
+#contacts #tabs .tab.active-tab .tab-header__primrary-text {
+  color: #f0554a;
+}
+
+#contacts #tabs .tab.disabled {
+  color: #bdb5b5;
+}
+
+#contacts #tab-content {
+  background: #eeeeee;
+  border: 1px solid #777777;
+  border-top: none;
+}
+
+#contacts #tab-content .contact-names-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 0;
+  padding: 0;
+}
+
+#contacts #tab-content .contact-names-list .contact-names-list-item {
+  position: relative;
+  flex: 0 50%;
+  box-sizing: border-box;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  #contacts #tab-content .contact-names-list .contact-names-list-item {
+    flex: 0 100%;
+  }
+}
+
+#contacts #tab-content .contact-name__link {
+  padding: 15px;
+  border-bottom: 2px dashed #777777;
+}
+
+#contacts #tab-content .first-name {
+  text-transform: uppercase;
+}
+
+#contacts #tab-content .contact-card {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background: #dcdada;
+  width: 85%;
+  box-shadow: 0px 2px 8px 0px black;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+
+#contacts #tab-content .contact-card .contact-card__header {
+  min-height: 20vh;
+}
+
+#contacts #tab-content .contact-card .username {
+  transform-origin: 0 0;
+  transform: rotate(90deg);
+  position: absolute;
+  top: 0px;
+  left: 60px;
+  line-height: 0px;
+  background: #CC3230;
+  padding: 0 80px 0 20px;
+  color: #f9f8f8;
+  box-shadow: 0px 0px 3px 1px black;
+}
+
+#contacts #tab-content .contact-card .username.active {
+  color: #f0554a;
+}
+
+#contacts #tab-content .contact-card .contact-image {
+  margin-left: 10%;
+}
+
+#contacts #tab-content .contact-card .contact-image img {
+  border-radius: 50%;
+}
+
+#contacts #tab-content .contact-card .contact-name {
+  margin-left: 5%;
+  line-height: 80px;
+  font-size: 1.2em;
+  color: #333333;
+}
+
+#contacts #tab-content .contact-card .contact-card__details {
+  margin-left: 15%;
+  line-height: 0;
+}
+
+#contacts #tab-content .contact-card .contact-card__details p {
+  display: flex;
+  margin: 10px;
+}
+
+#contacts #tab-content .contact-card .contact-card__details .label {
+  font-weight: 700;
+  width: 25%;
+  display: inline-block;
+}
+
+#contacts #tab-content .contact-card .contact-card__details span {
+  flex: 1;
+  text-align: left;
+}
+
+#contacts #tab-content .contact-card .close-contact-card {
+  font-size: 2em;
+  color: #333333;
+}

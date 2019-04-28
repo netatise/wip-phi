@@ -1,0 +1,37 @@
+!function(n){var t={};function a(e){if(t[e])return t[e].exports;var s=t[e]={i:e,l:!1,exports:{}};return n[e].call(s.exports,s,s.exports,a),s.l=!0,s.exports}a.m=n,a.c=t,a.d=function(n,t,e){a.o(n,t)||Object.defineProperty(n,t,{enumerable:!0,get:e})},a.r=function(n){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(n,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(n,"__esModule",{value:!0})},a.t=function(n,t){if(1&t&&(n=a(n)),8&t)return n;if(4&t&&"object"==typeof n&&n&&n.__esModule)return n;var e=Object.create(null);if(a.r(e),Object.defineProperty(e,"default",{enumerable:!0,value:n}),2&t&&"string"!=typeof n)for(var s in n)a.d(e,s,function(t){return n[t]}.bind(null,s));return e},a.n=function(n){var t=n&&n.__esModule?function(){return n.default}:function(){return n};return a.d(t,"a",t),t},a.o=function(n,t){return Object.prototype.hasOwnProperty.call(n,t)},a.p="",a(a.s=0)}([
+/*!************************!*\
+  !*** multi ./src/main ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(n,t,a){n.exports=a(/*! /home/delhivery/Code/wip-phi/src/main */1)},
+/*!*********************!*\
+  !*** ./src/main.js ***!
+  \*********************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(n,t,a){"use strict";a(/*! ./scripts/tabs */2),a(/*! ./style.scss */5)},
+/*!*****************************!*\
+  !*** ./src/scripts/tabs.js ***!
+  \*****************************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(n,t,a){"use strict";var e=c(a(/*! ./config */3)),s=c(a(/*! ./templates */4));function c(n){return n&&n.__esModule?n:{default:n}}!function(n){var t={tabs:[],contacts:{}},a=n("body").find("section"),c=a.find("main"),i=a.find("header");c.on("click",".tab",function(a){c.find("#tab-content").empty().append(s.default.namesList(t.contacts[n(this).data("tabId")])),n(".tab").removeClass("active-tab"),n(this).addClass("active-tab")}),c.on("click",".contact-name__link",function(t){n(".contact-card").hide(),n(this).toggleClass("active").siblings(".contact-card").toggle()}),c.on("click",".close-contact-card",function(t){n(this).closest(".contact-card").hide()}),i.append(e.default.title),function(){for(var n in e.default.tabs)t.contacts[e.default.tabs[n]]=[],t.tabs[e.default.tabs[n]]=0}(),n.ajax({type:"GET",url:e.default.userUrl,dataType:"json",contentType:"application/json",success:function(a){(function(n){var a=!0,e=!1,s=void 0;try{for(var c,i=n[Symbol.iterator]();!(a=(c=i.next()).done);a=!0){var l=c.value,r=l.name.first.charAt(0).toUpperCase();t.contacts[r]&&(t.contacts[r].push({first_name:l.name.first,last_name:l.name.last,username:l.login.username,email:l.email,phone:l.phone,location:l.location,picture:l.picture.large}),t.contacts[r].sort(function(n,t){return n.last_name>t.last_name?1:-1}),t.tabs[r]=t.contacts[r].length)}}catch(n){e=!0,s=n}finally{try{!a&&i.return&&i.return()}finally{if(e)throw s}}})(a.results),c.append(s.default.tabs(t.tabs)),n(".tab:first").click()},error:function(n){}}),setTimeout(function(){},2e3)}(jQuery)},
+/*!*******************************!*\
+  !*** ./src/scripts/config.js ***!
+  \*******************************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(n,t,a){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={title:"Contacts",userUrl:"https://api.randomuser.me/?results=300&nat=nl",numberCards:300,tabs:["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]}},
+/*!**********************************!*\
+  !*** ./src/scripts/templates.js ***!
+  \**********************************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(n,t,a){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var e={tabs:function(n){return"\n        <div id='contacts' class=\"center\">\n            <ul id=\"tabs\" class='list'>\n                "+Object.keys(n).map(function(t){return"\n                <li class='tab pointer "+(n[t]<1?"disabled":"")+"' data-tab-id=\""+t+'">\n                    <span class="tab-header__sub-text">'+n[t]+'</span>\n                    <span class="tab-header__primrary-text">'+t+"</span>\n                </li>"}).join("")+'\n            </ul>\n            <div id="tab-content">\n            </div>\n        </div>\n        '},namesList:function(n){return"\n        <ul class='contact-names-list list'>\n            "+n.map(function(n){return'\n            <li class="contact-names-list-item">\n                <div class="contact-name__link capital-text pointer center">\n                    <span>'+n.last_name+'</span>,\n                    <span class="first-name">'+n.first_name+'</span>\n                </div>\n                <div class="contact-card">\n                    <i class="close-contact-card pointer pull-right">&times;</i>\n                    <div class="contact-card__header">\n                        <div class="username">\n                            <p>USERNAME</p>\n                            <p>'+n.username+'</p>\n                        </div>\n                        <div class="contact-image pull-left">\n                            <img src="'+n.picture+'" />\n                        </div>\n                        <p class="contact-name pull-left">\n                            <span class="first-name">'+n.first_name+"</span>, \n                            <span>"+n.last_name+'</span>\n                        </p>\n                    </div>\n                    <div class="contact-card__details">\n                        <p>\n                            <div class="label">e-mail</div>\n                            <span class="value">'+n.email+'</span>\n                        </p>\n                        <p>\n                            <div class="label">phone</div>\n                            <span class="value">'+n.phone+'</span>\n                        </p>\n                        <p>\n                            <div class="label">street</div>\n                            <span class="value">'+n.location.street+'</span>\n                        </p>\n                        <p>\n                            <div class="label">city</div>\n                            <span class="value">'+n.location.city+'</span>\n                        </p>\n                        <p>\n                            <div class="label">state</div>\n                            <span class="value">'+n.location.state+'</span>\n                        </p>\n                        <p>\n                            <div class="label">postcode</div>\n                            <span class="value">'+n.location.postcode+"</span>\n                        </p>\n                    </div>\n                </div>\n            </li>"}).join("")+"\n        </ul>\n        "}};t.default=e},
+/*!************************!*\
+  !*** ./src/style.scss ***!
+  \************************/
+/*! no static exports found */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(n,t,a){}]);

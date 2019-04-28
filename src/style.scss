@@ -1,0 +1,185 @@
+/******************** ELEMENT STYLES********************/
+
+header {
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+
+/********************BASE CLASSES***********************/
+
+.center {
+    margin: 0 auto;
+}
+
+.list {
+    list-style-type: none;
+}
+
+.capital-text {
+    text-transform: capitalize;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+@mixin row-flex-wrap() {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+/********************COLOR PALLETTE***********************/
+
+$primary-tab-bg: #dcdada;
+$active-tab-bg: #eeeeee;
+$disabled-tab-bg: #bdb5b5;
+$primary-text: #333333;
+$primary-active-text: #f0554a;
+$username-bg: #CC3230;
+$username-color: #f9f8f8;
+$border-color: #777777;
+
+/********************STYLES***********************/
+
+#contacts {
+    width: 90vw;
+    #tabs {
+        @include row-flex-wrap();
+        margin-bottom: 0;
+        padding: 0;
+        .tab {
+            background: $primary-tab-bg;
+            color: $primary-text;
+            border: 1px solid $border-color;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0px 2px 4px 0px $border-color;
+            flex: 1;
+            padding: 2px 5px;
+            .tab-header__primrary-text {
+                font-size: 2em;
+            }
+            .tab-header__sub-text {
+                font-size: 0.7em;
+                float: right;
+                margin-left: 60%;
+            }
+            &.active-tab {
+                border-bottom: none;
+                background: $active-tab-bg;
+                box-shadow: none;
+                .tab-header__primrary-text {
+                    color: $primary-active-text;
+                }
+            }
+            &.disabled {
+                color: $disabled-tab-bg;
+            }
+        }
+    }
+    #tab-content {
+        background: $active-tab-bg;
+        border: 1px solid $border-color;
+        border-top: none;
+        .contact-names-list {
+            @include row-flex-wrap();
+            margin-top: 0;
+            padding: 0;
+            .contact-names-list-item {
+                position: relative;
+                flex: 0 50%;
+                box-sizing: border-box;
+                padding: 15px;
+                margin-top: 10px;
+            }
+            @media (max-width: 768px) {
+                .contact-names-list-item {
+                    flex: 0 100%;
+                }
+            }
+        }
+        .contact-name__link {
+            padding: 15px;
+            border-bottom: 2px dashed $border-color;
+        }
+        .first-name {
+            text-transform: uppercase;
+        }
+        .contact-card {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            background: $primary-tab-bg;
+            width: 85%;
+            box-shadow: 0px 2px 8px 0px black;
+            padding: 10px 30px;
+            border-radius: 5px;
+            .contact-card__header {
+                min-height: 20vh;
+            }
+            .username {
+                transform-origin: 0 0;
+                transform: rotate(90deg);
+                position: absolute;
+                top: 0px;
+                left: 60px;
+                line-height: 0px;
+                background: $username-bg;
+                padding: 0 80px 0 20px;
+                color: $username-color;
+                box-shadow: 0px 0px 3px 1px black;
+                &.active {
+                    color: $primary-active-text;
+                }
+            }
+            .contact-image {
+                margin-left: 10%;
+                img {
+                    border-radius: 50%;
+                }
+            }
+            .contact-name {
+                margin-left: 5%;
+                line-height: 80px;
+                font-size: 1.2em;
+                color: $primary-text;
+            }
+            .contact-card__details {
+                margin-left: 15%;
+                line-height: 0;
+                p {
+                    display: flex;
+                    margin: 10px;
+                }
+                .label {
+                    font-weight: 700;
+                    width: 25%;
+                    display: inline-block;
+                }
+                span {
+                    flex: 1;
+                    text-align: left;
+                }
+            }
+            .close-contact-card {
+                font-size: 2em;
+                color: $primary-text;
+            }
+        }
+    }
+}

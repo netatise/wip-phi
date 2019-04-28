@@ -85,31 +85,37 @@ import templates from './templates';
     //Tab Switch Logic
     $main.on('click', '.tab', function($event) {
 
-
-        let $tabContent = $main.find('#tab-content');
+        let $this = $(this),
+            $tabContent = $main.find('#tab-content');
 
         $tabContent.empty()
-            .append(templates.namesList(tabData.contacts[$(this).data('tabId')]));
+            .append(templates.namesList(tabData.contacts[$this.data('tabId')]));
 
-        $(".tab").removeClass("active-tab");
-        $(this).addClass("active-tab");
+        $main.find(".tab").removeClass("active-tab");
+        $this.addClass("active-tab");
     });
 
     // Open Contact Card
     $main.on('click', '.contact-name__link', function($event) {
 
-        $('.contact-card').hide();
+        let $this = $(this),
+            $contactCard = $this.siblings('.contact-card');
 
-        $(this).toggleClass('active')
-            .siblings('.contact-card')
-            .toggle();
+        $main.find('.contact-card').not($contactCard).hide();
+        $main.find('.contact-name__link').not($this).removeClass('active');
+
+        $this.toggleClass('active');
+        $contactCard.toggle();
 
     });
 
     // Close Contact Hard
     $main.on('click', '.close-contact-card', function($event) {
 
-        $(this).closest('.contact-card').hide();
+        let $this = $(this);
+
+        $this.closest('.contact-card').hide();
+        $this.parents('.contact-names-list-item').find('.contact-name__link').removeClass('active');
 
     });
 

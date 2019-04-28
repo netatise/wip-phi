@@ -106,6 +106,7 @@ body {
   box-sizing: border-box;
   padding: 15px;
   margin-top: 10px;
+  text-transform: capitalize;
 }
 
 @media (max-width: 768px) {
@@ -117,6 +118,14 @@ body {
 #contacts #tab-content .contact-name__link {
   padding: 15px;
   border-bottom: 2px dashed #777777;
+}
+
+#contacts #tab-content .contact-name__link.active {
+  color: #f0554a;
+}
+
+#contacts #tab-content .contact-name__link:hover {
+  color: #f0554a;
 }
 
 #contacts #tab-content .first-name {
@@ -149,10 +158,6 @@ body {
   padding: 0 80px 0 20px;
   color: #f9f8f8;
   box-shadow: 0px 0px 3px 1px black;
-}
-
-#contacts #tab-content .contact-card .username.active {
-  color: #f0554a;
 }
 
 #contacts #tab-content .contact-card .contact-image {

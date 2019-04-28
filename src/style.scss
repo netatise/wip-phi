@@ -106,6 +106,7 @@ $border-color: #777777;
                 box-sizing: border-box;
                 padding: 15px;
                 margin-top: 10px;
+                text-transform: capitalize;
             }
             @media (max-width: 768px) {
                 .contact-names-list-item {
@@ -116,6 +117,12 @@ $border-color: #777777;
         .contact-name__link {
             padding: 15px;
             border-bottom: 2px dashed $border-color;
+            &.active {
+                color: $primary-active-text;
+            }
+            &:hover {
+                color: $primary-active-text;
+            }
         }
         .first-name {
             text-transform: uppercase;
@@ -143,9 +150,6 @@ $border-color: #777777;
                 padding: 0 80px 0 20px;
                 color: $username-color;
                 box-shadow: 0px 0px 3px 1px black;
-                &.active {
-                    color: $primary-active-text;
-                }
             }
             .contact-image {
                 margin-left: 10%;

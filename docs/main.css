@@ -45,11 +45,13 @@ body {
 }
 
 #contacts #tabs {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  grid-auto-rows: 50px;
+  grid-gap: 0px;
   margin-bottom: 0;
   padding: 0;
+  background: #dcdada;
 }
 
 #contacts #tabs .tab {
